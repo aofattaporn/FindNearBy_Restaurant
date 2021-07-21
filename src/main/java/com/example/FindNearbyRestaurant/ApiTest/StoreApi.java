@@ -1,12 +1,23 @@
 package com.example.FindNearbyRestaurant.ApiTest;
 
+import com.example.FindNearbyRestaurant.Business.StoreBusiness;
+import com.example.FindNearbyRestaurant.Entity.Store;
 import com.example.FindNearbyRestaurant.Model.MRequestLatLong;
+import com.example.FindNearbyRestaurant.Model.RequestAddRestaurant;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
 @RequestMapping("/test")
 public class StoreApi {
+
+    @Autowired
+    private StoreBusiness storeBusiness;
+
 //    test get method
     @GetMapping
     public MRequestLatLong test(){
@@ -20,5 +31,15 @@ public class StoreApi {
     public String GetLatLong(@RequestBody MRequestLatLong requestLatLong) {
 
         return "hello lnw aof";
+    }
+
+    @PostMapping("/addrestaurant")
+    public ResponseEntity<Store> addRestaurant(@RequestBody RequestAddRestaurant request) {
+        return ResponseEntity.ok(storeBusiness.addRestaurant(request));
+    }
+
+    @GetMapping("/getAllRestaurant")
+    public ResponseEntity<Iterable<Store>> getAllRestaurant() {
+        return ResponseEntity.ok(storeBusiness.getAllRestaurant());
     }
 }

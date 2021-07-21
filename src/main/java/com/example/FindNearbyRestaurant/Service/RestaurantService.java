@@ -1,0 +1,29 @@
+package com.example.FindNearbyRestaurant.Service;
+
+import com.example.FindNearbyRestaurant.Entity.Store;
+import com.example.FindNearbyRestaurant.Model.RequestAddRestaurant;
+import com.example.FindNearbyRestaurant.Reppository.StoreRespository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class RestaurantService {
+
+    @Autowired
+    private StoreRespository storeRespository;
+
+    public Store create(RequestAddRestaurant request) {
+        Store store = new Store();
+        store.setName(request.getName());
+        store.setLatitude(request.getLat());
+        store.setLongitude(request.getLng());
+
+        return storeRespository.save(store);
+    }
+
+    public Iterable<Store> getAllRestaurant() {
+        return storeRespository.findAll();
+    }
+}

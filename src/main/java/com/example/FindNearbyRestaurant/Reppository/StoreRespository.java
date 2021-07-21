@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 
-interface StoreRespository extends CrudRepository<Store, String> {
+public interface StoreRespository extends CrudRepository<Store, String> {
 //    Optional<Store> findByEmail(String email);
 
 
