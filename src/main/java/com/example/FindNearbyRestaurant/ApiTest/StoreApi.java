@@ -4,6 +4,7 @@ import com.example.FindNearbyRestaurant.Business.StoreBusiness;
 import com.example.FindNearbyRestaurant.Entity.Store;
 import com.example.FindNearbyRestaurant.Model.MRequestLatLong;
 import com.example.FindNearbyRestaurant.Model.RequestAddRestaurant;
+import com.example.FindNearbyRestaurant.Model.RequestNearbyRestaurant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -39,7 +40,12 @@ public class StoreApi {
     }
 
     @GetMapping("/getAllRestaurant")
-    public ResponseEntity<Iterable<Store>> getAllRestaurant() {
+    public ResponseEntity<List<Store>> getAllRestaurant() {
         return ResponseEntity.ok(storeBusiness.getAllRestaurant());
+    }
+
+    @PostMapping("/findNearbyRestaurant")
+    public ResponseEntity<Store> findNearbyRestaurant(@RequestBody RequestNearbyRestaurant request) {
+        return ResponseEntity.ok(storeBusiness.findNearbyRestaurant(request));
     }
 }

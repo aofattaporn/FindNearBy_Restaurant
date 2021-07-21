@@ -6,7 +6,10 @@ import com.example.FindNearbyRestaurant.Reppository.StoreRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RestaurantService {
@@ -23,7 +26,7 @@ public class RestaurantService {
         return storeRespository.save(store);
     }
 
-    public Iterable<Store> getAllRestaurant() {
-        return storeRespository.findAll();
+    public List<Store> getAllRestaurant() {
+        return (List<Store>) storeRespository.findAll();
     }
 }
