@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/test")
 public class StoreApi {
@@ -19,15 +18,14 @@ public class StoreApi {
     @Autowired
     private StoreBusiness storeBusiness;
 
-//    test get method
     @GetMapping
-    public MRequestLatLong test(){
+    public MRequestLatLong test() {
         MRequestLatLong test = new MRequestLatLong();
         test.setLatitude(1232.2323);
         test.setLongitude(2324.3434);
         return test;
     }
-//    test
+
     @PostMapping("/calculate_distance")
     public String GetLatLong(@RequestBody MRequestLatLong requestLatLong) {
 
