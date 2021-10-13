@@ -3,8 +3,8 @@ package com.example.FindNearbyRestaurant.Model;
 import lombok.Data;
 
 @Data
-public class MRequestLatLong {
+public class RequestAddRestaurant {
     private String name;
-    private double latitude;
-    private double longitude;
+    private double lat;
+    private double lng;
 }

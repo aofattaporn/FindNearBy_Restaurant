@@ -10,9 +10,7 @@ import javax.persistence.*;
 public abstract class BaseEntity {
 
     @Id
-    @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    @GeneratedValue(strategy =  GenerationType.IDENTITY, generator = "uuid2")
-    @Column(length = 36, nullable = false, updatable = false)
-    private String StroeId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
 }
