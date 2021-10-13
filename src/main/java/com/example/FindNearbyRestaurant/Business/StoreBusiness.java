@@ -48,4 +48,5 @@ public class StoreBusiness {
 
         return Math.sqrt(Math.pow((lat2 - lat1), 2) + Math.pow((lon2 - lon1), 2));
     }
+
 }
